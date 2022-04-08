@@ -13,16 +13,20 @@ const Modal = () => {
 
     const authObject = { 'Project-ID': projectID, 'User-Name': username, 'User-Secret': password };
     
-    // post request to create user
     try {
+
+        // post request to create user
         axios.post(
             "https://api.chatengine.io/users/",
             {'username': username, 'secret': password}, // Body object
             {'headers': {'PRIVATE-KEY': 'd2d99c2c-795d-4825-b388-d96a85e05185'}} // Headers object
           )
           .then(r => console.log(r))
+
+        // get all chats of the user 
         await axios.get('https://api.chatengine.io/chats', { headers: authObject });
-        // login the user
+
+        // save login info of the user
         localStorage.setItem('username', username)
         localStorage.setItem('password', password)
 
@@ -31,8 +35,7 @@ const Modal = () => {
          console.log(error)
          setError('Incorrect credentials, try again')
      }
-
-  };
+};
 
   return (
     <div className="wrapper">
