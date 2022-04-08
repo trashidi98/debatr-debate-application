@@ -1,12 +1,11 @@
 import logo from './logo.svg';
-import {ChatEngine, ChatEngineWrapper, ChatSocket, getChat} from 'react-chat-engine';
-import ChatFeed from './components/ChatFeed';
+import {ChatEngine, ChatEngineWrapper, Socket, getChat, ChatList, ChatSocket, ChatFeed} from 'react-chat-engine';
 import LoginForm from './components/LoginForm';
 import './App.css';
 import './testpages/HomePage.js'
 import HomePage from './testpages/HomePage';
-import 
-
+import Stack from '@mui/material/Stack'
+import { Box } from '@mui/material';
 var axios = require('axios');
 
 var config = {
@@ -40,13 +39,12 @@ const App = () => {
 
   return(
     <div>
-    <div>
     <ChatEngine
-      height="50vh"
+      height="100vh"
       projectID="6e568c29-44d2-4cb3-805c-5320fc680e65"
       userName={localStorage.getItem('username')}
       userSecret={localStorage.getItem('password')}
-      // renderChatFeed={(chatAppProps) => <ChatFeed {...chatAppProps} />}
+      renderChatFeed={(chatAppProps) => <ChatFeed {...chatAppProps} />}
       onNewMessage={() => new Audio('https://chat-engine-assets.s3.amazonaws.com/click.mp3').play()}
     />
     
@@ -54,22 +52,25 @@ const App = () => {
     <HomePage/>
     </div> */}
     
-    </div>    
-    <div>
 
-    <ChatEngineWrapper>
-      <ChatSocket
+    {/* <ChatEngineWrapper>
+      <Socket
         projectID="6e568c29-44d2-4cb3-805c-5320fc680e65"
-        chatID={id}
-        chatAccessKey={accesskey}
-        senderUsername={"tabish"}
+        userName={localStorage.getItem('username')}
+        userSecret={localStorage.getItem('password')}
       />
+      <ChatList/> */}
 
-      <ChatFeed activeChat={id}/>
-    </ChatEngineWrapper>
+    {/* <ChatSocket 
+                development={false}
+                projectID={"6e568c29-44d2-4cb3-805c-5320fc680e65"}
+                chatID={id}
+                chatAccessKey={accesskey}
+                senderUsername="tabish"
+            />
+      <ChatFeed development={false} activeChat={id}/>
+    </ChatEngineWrapper> */}
 
-
-    </div>
     </div>
   )
 }
