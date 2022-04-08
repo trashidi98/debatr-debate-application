@@ -1,0 +1,7 @@
+curl --location -g --request POST 'https://api.chatengine.io/chats/{{chat_id}}/people/' \
+--header 'Project-ID: 6e568c29-44d2-4cb3-805c-5320fc680e65' \
+--header 'User-Name: saima' \
+--header 'User-Secret: 123' \
+--data-raw '{
+    "username": "saima"
+}'
