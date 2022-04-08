@@ -20,13 +20,72 @@ const Modal = () => {
             {'username': username, 'secret': password}, // Body object
             {'headers': {'PRIVATE-KEY': 'd2d99c2c-795d-4825-b388-d96a85e05185'}} // Headers object
           )
-          .then(r => console.log(r))
-        await axios.get('https://api.chatengine.io/chats', { headers: authObject });
+          .then(r => console.log(r))        
+        
         // login the user
-        localStorage.setItem('username', username)
-        localStorage.setItem('password', password)
+        let guns = 109949;
+        let humanCloning = 109950; 
+        let cps888 = 109952; 
 
-        window.location.reload()
+        await axios.post(
+          `https://api.chatengine.io/chats/${guns}/people/`, 
+          { headers: { 
+              "Public-Key": '6e568c29-44d2-4cb3-805c-5320fc680e65', 
+              "User-Name": username, 
+              "User-Secret": password 
+          }}).then((response) => {
+                console.log(response.data);
+          }).catch((e) => console.log('Invite Error', e));
+          
+          //     return axios.post(
+          //   `https://api.chatengine.io/chats/${humanCloning}/people/`, 
+          //   { headers: { 
+          //       "Public-Key": '6e568c29-44d2-4cb3-805c-5320fc680e65', 
+          //       "User-Name": username, 
+          //       "User-Secret": password 
+          //   }})
+          // }).then((response) => {
+          //   console.log("Tabish2")
+          //   return axios.post(
+          //   `https://api.chatengine.io/chats/${cps888}/people/`, 
+          //   { headers: { 
+          //       "Public-Key": '6e568c29-44d2-4cb3-805c-5320fc680e65', 
+          //       "User-Name": username, 
+          //       "User-Secret": password 
+          //   }})
+          // }).then((response) => {
+          //     console.log(response)
+          // }).catch(
+          //   error => console.log(error.response)
+          // ); 
+
+          // axios.post(
+          //   `https://api.chatengine.io/chats/${humanCloning}/people/`, 
+          //   { headers: { 
+          //       "Public-Key": '6e568c29-44d2-4cb3-805c-5320fc680e65', 
+          //       "User-Name": username, 
+          //       "User-Secret": password 
+          //   }}).then((response) => {
+          //         console.log(response.data);
+          //   }).catch((e) => console.log('Invite Error', e));
+
+          // axios.post(
+          //   `https://api.chatengine.io/chats/${cps888}/people/`, 
+          //   { headers: { 
+          //       "Public-Key": '6e568c29-44d2-4cb3-805c-5320fc680e65', 
+          //       "User-Name": username, 
+          //       "User-Secret": password 
+          //   }}).then((response) => {
+          //         console.log(response.data);
+          //   }).catch((e) => console.log('Invite Error', e));
+
+        // axios.get('https://api.chatengine.io/chats', { headers: authObject });
+
+        // localStorage.setItem('username', username)
+        // localStorage.setItem('password', password)
+
+        // window.location.reload()
+
      } catch (error) {
          console.log(error)
          setError('Incorrect credentials, try again')
